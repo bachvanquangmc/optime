@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Playfair+Display&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/calendar.css" class="css">
+  <link rel="stylesheet" href="./css/styles.css" />
+  <script src="./javascripts/index.js"></script>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="./javascripts/jquery.simple-calendar.js"></script>
+  <link rel="stylesheet" type="text/css" href="./css/simple-calendar.css" />
+
+
+  <title>Optime</title>
+
+
+</head>
+
+<body class="container">
+  <nav>
+    <div>
+        <a href="index.html"><img src="./images/optimelogo.svg" alt="Optime Logo"></a>
+    </div>
+    <ul>
+        <li><a href="signup.html">Sign Up</a></li>
+        <li><a href="signin.html">Sign In</a></li>
+        <li><a href="addhabit.html">Habit</a></li>
+        <li><a href="calendar.html">Calendar</a></li>
+        <li><a href="profile.html">Profile</a></li>
+    </ul>
+</nav>
+
+    <main>
+      <h1>Calendar</h1>
+
+      <div id="container" class="calendar-container"></div>
+
+      <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+              integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+              crossorigin="anonymous"></script>
+      <script src="./javascripts/jquery.simple-calendar.js"></script>
+      <script>
+        var $calendar;
+        $(document).ready(function () {
+          let container = $("#container").simpleCalendar({
+            fixedStartDay: 0, // begin weeks by sunday
+            disableEmptyDetails: true,
+            events: [
+              // generate new event after tomorrow for one hour
+              {
+                startDate: new Date(new Date().setHours(new Date().getHours() + 24)).toDateString(),
+                endDate: new Date(new Date().setHours(new Date().getHours() + 25)).toISOString(),
+                summary: 'Study Javscript and PHP'
+              },
+              // generate new event for yesterday at noon
+              {
+                startDate: new Date(new Date().setHours(new Date().getHours() - new Date().getHours() - 12, 0)).toISOString(),
+                endDate: new Date(new Date().setHours(new Date().getHours() - new Date().getHours() - 11)).getTime(),
+                summary: 'Go for run'
+              },
+              // generate new event for the last two days
+              {
+                startDate: new Date(new Date().setHours(new Date().getHours() - 48)).toISOString(),
+                endDate: new Date(new Date().setHours(new Date().getHours() - 24)).getTime(),
+                summary: 'Meditate for 30minutes'
+              }
+            ],
+
+          });
+          $calendar = container.data('plugin_simpleCalendar')
+        });
+      </script>
+    </main>
+
+    <footer>
+        <div>
+            <h2>Optime</h2>
+            <p>Become a better you by staying on track everyday with Optime!</p>
+            <div class="socialmedia-container">
+              <a href="https://www.instagram.com/" target="_blank"><img class="socialmedia" src="./images/instagram(colour).png"></a>
+              <a href="https://www.facebook.com/" target="_blank"><img class="socialmedia" src="./images/facebook(colour).png"></a>
+              <a href="https://www.twitter.com/" target="_blank"><img class="socialmedia" src="./images/twitter(colour).png"></a>
+          </div>
+        </div>
+        <ul>
+            <li><a href="">Contact Us</a></li>
+            <li><a href="">Sign Up</a></li>
+            <li><a href="">Sign In</a></li>
+        </ul>
+        <ul>
+            <li><a href="">Privacy Policy</a></li>
+            <li><a href="">Terms & Condition</a></li>
+            <li><a href="">@2021 Optime</a></li>
+        </ul>
+    </footer>
+
+</body>
+</html>

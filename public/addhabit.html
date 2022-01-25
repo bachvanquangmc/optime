@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optime</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Playfair+Display&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/addhabit.css" class="css">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    $( function() {
+        $( "#slider-range-max" ).slider({
+            range: "max",
+            min: 1,
+            max: 10,
+            value: 1,
+            slide: function( event, ui ) {
+                $( "#amount" ).val( ui.value );
+            },
+            classes: {
+                "ui-slider": "highlight"
+            }
+            });
+            $( "#amount" ).val( $( "#slider-range-max" ).slider( "value" ) );
+        } );
+    </script>
+    
+    
+</head>
+
+<body class="container">
+    <nav>
+        <div>
+            <a href="index.html"><img src="./images/optimelogo.svg" alt="Optime Logo"></a>
+        </div>
+        <ul>
+            <li><a href="signup.html">Sign Up</a></li>
+            <li><a href="signin.html">Sign In</a></li>
+            <li><a href="addhabit.html">Habit</a></li>
+            <li><a href="calendar.html">Calendar</a></li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div><h1>Add Habit</h1></div>
+        <div class="maincont">
+            <div class="container_row">
+                <div class="habitcont">
+                    <h3>Habits</h3>
+                    <form>
+                        <label for="title">Title</label><br>
+                        <input type="text" id="title" name="title" placeholder="eg. Hydrated"><br>
+                        <label for="details">Details</label><br>
+                        <input type="text" id="details" name="details" placeholder="eg. Drink 2L water everyday"><br>
+
+                      </form>
+                </div>
+                <div class="catcont">
+                    <h3>Category</h3>
+                    <div>
+                        <div class="cat">
+                            <div class="catimg" id="health" onclick="changeBg('#health')">
+                                <img id="1" src="./images/health.png" />
+                                <p>Health</p>
+                            </div>
+                            <div class="catimg" id="fitness" onclick="changeBg('#fitness')">
+                                <img id="2" src="./images/fitness.png" />
+                                <p>Fitness</p>
+                            </div>
+                            <div class="catimg" id="learn" onclick="changeBg('#learn')">
+                                <img id="3" src="./images/learn.png" />
+                                <p>Learn</p>
+                            </div>
+                            <div class="catimg" id="sus" onclick="changeBg('#sus')">
+                                <img src="./images/sustainability.png" />
+                                <p>Sustainability</p>
+                            </div>
+                        </div>
+                        <div class="cat">
+                            <div class="catimg" id="house" onclick="changeBg('#house')">
+                                <img src="./images/home.png" />
+                                <p>House & Pet</p>
+                            </div>
+                            <div class="catimg" id="relax" onclick="changeBg('#relax')">
+                                <img src="./images/relax.png" />
+                                <p>Relaxation</p>
+                            </div>
+                            <div class="catimg" id="family" onclick="changeBg('#family')">
+                                <img src="./images/family.png" />
+                                <p>Family</p>
+                            </div>
+                            <div class="catimg" id="finance" onclick="changeBg('#finance')">
+                                <img src="./images/finance.png" />
+                                <p>Finance</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container_row">
+                <div class="commcont">
+                    <h3>Commitment</h3>
+                    <p>How many times you want to do this habit?</p>
+                    <div id="slider-range-max"></div>
+                    <input type="text" id="amount" readonly style="border:0; font-weight:bold;">
+                </div>
+                <div class="butcont">
+                    <div>
+                        <button class="but_first" onclick="resetButton()">RESET</button>
+                        <button onclick="Handler()" class="but_second" id="save-btn">SAVE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="resultcont">
+            <div class="week">
+                <p>Today's Habit</p>
+            </div>
+    
+            <div class="habits" id="ex">
+                <!-- <button id="drinkwater" class="habit_btn">
+                    <img src="./images/reminders.png" class="icon" alt="Drink Water"/>Drink Water
+                </button>
+                <button id="walkdog" class="habit_btn">
+                    <img src="./images/family.png" class="icon" alt="Walk Dog"/>Walk Dog
+                </button> -->
+                <!-- <button id="stand" class="habit_btn">
+                    <img src="public/check.png" class="icon" alt="Stand"/>Stand
+                </button>
+                <button id="cook" class="habit_btn">
+                    <img src="public/health.png" class="icon" alt="Meals"/>Cook Meal
+                </button>
+                <button id="read" class="habit_btn">
+                    <img src="public/learn.png" class="icon" alt="Read"/>Read Book
+                </button>
+                <button id="meditate" class="habit_btn">
+                    <img src="public/relax.png" class="icon" alt="Meditate"/>Meditate
+                </button>
+                <button id="exercise" class="habit_btn">
+                    <img src="public/fitness.png" class="icon" alt="Exercise"/>Exercise
+                </button> -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div>
+            <h2>Optime</h2>
+            <p>Become a better you by staying on track everyday with Optime!</p>
+            <div class="socialmedia-container">
+                <a href="https://www.instagram.com/" target="_blank"><img class="socialmedia" src="./images/instagram(colour).png"></a>
+                <a href="https://www.facebook.com/" target="_blank"><img class="socialmedia" src="./images/facebook(colour).png"></a>
+                <a href="https://www.twitter.com/" target="_blank"><img class="socialmedia" src="./images/twitter(colour).png"></a>
+            </div>
+        </div>
+        <ul class="footerlist">
+            <li>Contact Us</li>
+            <li>Careers</li>
+            <li>Feedback</li>
+        </ul>
+
+        <ul class="footerlist">
+            <li>Privacy Policy</li>
+            <li>Terms & Condition</li>
+            <li>@2021 Optime</li>
+        </ul>
+    </footer>
+
+
+    <script src="./javascripts/addhabit.js"></script>
+
+</body>
+</html>

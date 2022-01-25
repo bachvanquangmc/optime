@@ -1,0 +1,29 @@
+{
+    "userName" : "Profile",
+    "userImg" : "./images/user1.jpg",
+    "loginName" : "Alex Lau",
+    "active" : true,
+    "tasks" : [
+      {
+        "category" : "./images/learn.png",
+        "commit" : "1 hour per day",
+        "title" : "Study PHP",
+        "details" : [
+          "Mon : study php and javascript everyday for an hours",
+          "Tue : study php and jvascript everyday for an hours",
+          "Thus : study php and javascript everyday for an hours",
+          "Sat : study php and javascript everyday for an hours"
+        ]
+      },
+      {
+        "category" : "./images/relax.png",
+        "commit" : "Twice a week",
+        "title" : "Take a bath",
+        "details" : [
+          "Wed : Take a bath before going bed for stress-free",
+          "Sun : Take a bath before going bed for stress-free"
+
+        ]
+      }
+    ]
+  }
